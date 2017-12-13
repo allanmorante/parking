@@ -14,7 +14,15 @@ class CreateMembreTable extends Migration
     public function up()
     {
         Schema::create('membre', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('idMembre');
+            $table->string('nom', 20);
+            $table->string('prenom', 20);
+            $table->string('email', 100)->unique();
+            $table->integer('telephone')->unique();
+            $table->string('password');
+            $table->boolean('isAdmin')->default(false);
+            $table->integer('rang')->nullable();
+            $table->rememberToken();
             $table->timestamps();
         });
     }
