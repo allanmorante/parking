@@ -15,7 +15,7 @@ class CreateOrdonnerTable extends Migration
     {
         Schema::create('ordonner', function (Blueprint $table) {
             $table->date('finPeriode');
-            $table->integer('idMembre')->unsigned()->foreign()->references('idMembre')->on('users');
+            $table->integer('idMembre')->unsigned()->foreign()->references('id')->on('users');
             $table->integer('idPlace')->unsigned()->foreign()->references('idPlace')->on('place');
             $table->date('debutPeriode')->foreign()->references('debutPeriode')->on('periode');
             $table->primary(['idMembre', 'idPlace', 'debutPeriode']);
