@@ -17,4 +17,14 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::get('/welcome', function (){
+    return view('welcome');
+});
+
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/pages/admin/admindashboard', 'AdminController@index');
+
+Route::get('/pages/admin/manage/places', 'AdminPlaceController@index');
+
+Route::get('/pages/admin/manage/addplaces', 'AdminPlaceController@create');
