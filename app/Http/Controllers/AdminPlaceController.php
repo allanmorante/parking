@@ -25,7 +25,7 @@ class AdminPlaceController extends Controller
      */
     public function create()
     {
-        return view('pages/admin/manage/addplace');
+        return view('pages/admin/manage/create');
     }
 
     /**
@@ -36,7 +36,13 @@ class AdminPlaceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $a = new place;
+
+        $a->numPlace = $request->input('numPlace');
+
+        $a->save();
+
+        return redirect('AdminPlaces')->with('success', 'Place créée !!');
     }
 
     /**
