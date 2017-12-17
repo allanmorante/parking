@@ -1,7 +1,7 @@
 @extends('layouts/app')
 @section('content')
 
-<form class="form-inline" method="POST" action="/AdminPlaces">
+<form class="form-inline" method="POST" action="{{ Route('places.store') }}">
     {{ csrf_field() }}
 
 <div class="form-group">

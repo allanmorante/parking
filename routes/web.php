@@ -27,6 +27,11 @@ Route::get('/pages/admin/admindashboard', 'AdminController@index');
 Route::get('/pages/admin/manage/addplaces', 'AdminPlaceController@create')->name('addplaces');
 */
 
-Route::get('AdminPlaces', 'AdminPlaceController@index');
-Route::get('AdminPlaces/create', 'AdminPlaceController@create');
-Route::post('AdminPlaces', 'AdminPlaceController@store');
+//Route::get('AdminPlaces', 'AdminPlaceController@index');
+//Route::get('AdminPlaces/create', 'AdminPlaceController@create');
+//Route::post('AdminPlaces', 'AdminPlaceController@store');
+//Route::get('AdminPlaces/{place->idPlace}/edit', 'AdminPlaceController@edit')->name('AdminPlaces.edit');
+
+Route::resource('admin/places', 'AdminPlaceController');
+
+Route::resource('admin/users', 'AdminUsersController');
