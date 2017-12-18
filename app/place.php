@@ -11,8 +11,6 @@ class place extends Model
 
     protected $table = 'place';
 
-    public $timestamps = false;
-
     protected $fillable = [
         'numPlace',
     ];

@@ -42,7 +42,7 @@ class AdminPlaceController extends Controller
 
         $a->save();
 
-        return redirect('AdminPlaces');
+        return redirect('admin/places');
     }
 
     /**
@@ -64,11 +64,8 @@ class AdminPlaceController extends Controller
      */
     public function edit($id)
     {
-        $place = place::all()->where('idPlace', $id);
-
-        return dd($place);
-
-        //return view('admin/places/edit', compact('place'));
+        $place = place::all()->where('idPlace', $id)->first();
+        return view('admin/places/edit')->with('place', $place);
     }
 
     /**
@@ -80,9 +77,9 @@ class AdminPlaceController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->place->update($id, $request->all());
+        //$this->place->update($id, $request->all());
 
-        return redirect('admin.places');
+        //return redirect('admin.places');
     }
 
     /**
@@ -95,6 +92,6 @@ class AdminPlaceController extends Controller
     {
         $this->place->destroy($id);
 
-        return redirect('admin.places');
+        return redirect()->route('places.index');
     }
 }

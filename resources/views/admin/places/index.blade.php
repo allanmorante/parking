@@ -2,6 +2,8 @@
 
 @section('content')
 
+    <a href="{{ Route('places.create') }}" class="btn btn-primary">Créer une place</a>
+
     @if (count($places) > 0)
         <table class="table">
             <thead>
@@ -19,7 +21,7 @@
                     <th scope="row">{{$place->numPlace}}</th>
                     <td><button class="btn btn-danger" href="#">Supprimer</button> </td>
                     <td>{{$place->idPlace}}</td>
-                    <td><a class="btn btn-warning" href="{{ Route('places.edit', $place->idPlace) }}">Editer</a> </td>
+                    <td><a class="btn btn-warning" href="/admin/places/{{$place->idPlace}}/edit">Editer</a> </td>
                     <td>Le status</td>
                 </tr>
             @endforeach
@@ -28,8 +30,6 @@
     @else
         {{'0 places'}}
     @endif
-
-    <a href="{{ Route('places.create') }}" class="btn btn-primary">Ajouter une place</a>
 
 
 @endsection

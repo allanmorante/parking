@@ -15,7 +15,7 @@ class AdminUsersController extends Controller
     public function index()
     {
 
-        $users = user::all();
+        $users = User::all();
         return view('admin/users/index')->with('users', $users);
     }
 
@@ -59,7 +59,8 @@ class AdminUsersController extends Controller
      */
     public function edit($id)
     {
-
+        $user = user::all()->where('id', $id)->first();
+        return view('admin/users/edit')->with('user', $user);
     }
 
     /**
@@ -71,7 +72,26 @@ class AdminUsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'email' => 'required',
+            'telephone' => 'required',
+            'password' => 'required|string|min:6|confirmed',
+            'rang' => 'numeric|unique:users',
+
+        ]);
+
+        $user = User::all()->where('id', $id);
+
+        $user->update(
+            [
+                'email' => $request->email,
+                'telephone' => $request->telephone,
+                'password' => Hash::make($request->password),
+                'rang' => $request->rang,
+                ]
+            );
+
+        return redirect()->route('users.index');
     }
 
     /**

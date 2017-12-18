@@ -1,6 +1,5 @@
 @extends('layouts.app')
 @section('content')
-    {{$place->idPlace}}
 
     <form class="form-inline" method="POST" action="#">
         {{ csrf_field() }}
@@ -8,7 +7,7 @@
         <div class="form-group">
             <div class="col-md-6">
                 <label for="numPlace" class="col-md-4 control-label">Numéro à définir</label>
-                <input id="numPlace" type="text" class="form-control" name="numPlace">
+                <input id="numPlace" type="text" class="form-control" name="numPlace" value="{{$place->numPlace}}">
             </div>
         </div>
         <div class="form-group">

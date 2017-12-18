@@ -9,6 +9,7 @@
                 <th scope="col">Nom</th>
                 <th scope="col">Prénom</th>
                 <th scope="col">Email</th>
+                <th scope="col">Téléphone</th>
                 <th scope="col">Supprimer</th>
                 <th scope="col">Editer</th>
                 <th scope="col">Place occupé</th>
@@ -21,8 +22,9 @@
                     <th scope="row">{{$user->name}}</th>
                     <td>{{$user->lastname}}</td>
                     <td>{{$user->email}}</td>
-                    <td><button class="btn btn-danger" href="#">Supprimer</button> </td>
-                    <td><a class="btn btn-warning" href="#">Editer</a> </td>
+                    <td>{{$user->telephone}}</td>
+                    <td><button class="btn btn-danger" href="/admin/users/{{$user->id}}">Supprimer</button> </td>
+                    <td><a class="btn btn-warning" href="/admin/users/{{$user->id}}/edit">Editer</a> </td>
                     <td>place de l'utilisateur</td>
                     <td>{{$user->rang}}</td>
                 </tr>
