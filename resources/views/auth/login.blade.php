@@ -62,6 +62,7 @@
                         </div>
                     </form>
                 </div>
+                <div class="panel-footer"><a href="/register">Je n'ai pas de compte</a> </div>
             </div>
         </div>
     </div>

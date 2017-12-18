@@ -77,9 +77,19 @@ class AdminPlaceController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //$this->place->update($id, $request->all());
+        $this->validate($request, [
+            'numPlace' => 'required|string|unique:place',
+        ]);
 
-        //return redirect('admin.places');
+        $user = place::all()->where('id', $id)->first();
+
+        $user->update(
+            [
+                'numPlace' => $request->numPlace,
+            ]
+        );
+
+        return redirect()->route('places.index');
     }
 
     /**

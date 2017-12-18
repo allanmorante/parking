@@ -98,6 +98,7 @@
                         </div>
                     </form>
                 </div>
+                <div class="panel-footer"><a href="/login">J'ai déjà un compte</a></div>
             </div>
         </div>
     </div>

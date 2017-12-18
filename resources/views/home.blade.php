@@ -14,7 +14,8 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    <a class="btn btn-primary" href="admin">Admin Panel</a>
+                    <a class="btn btn-primary" href="user">User Panel</a>
                 </div>
             </div>
         </div>

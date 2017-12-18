@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
 use Illuminate\Http\Request;
 
-class AdminUsersController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +13,7 @@ class AdminUsersController extends Controller
      */
     public function index()
     {
-
-        $users = User::all();
-        return view('admin/users/index')->with('users', $users);
+        return view('user/index');
     }
 
     /**
@@ -59,8 +56,7 @@ class AdminUsersController extends Controller
      */
     public function edit($id)
     {
-        $user = user::all()->where('id', $id)->first();
-        return view('admin/users/edit')->with('user', $user);
+        //
     }
 
     /**
@@ -72,26 +68,7 @@ class AdminUsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request, [
-            'email' => 'required',
-            'telephone' => 'required',
-            'password' => 'required|string|min:6|confirmed',
-            'rang' => 'numeric|unique:users',
-
-        ]);
-
-        $user = User::all()->where('idPlace', $id)->first();
-
-        $user->update(
-            [
-                'email' => $request->email,
-                'telephone' => $request->telephone,
-                'password' => Hash::make($request->password),
-                'rang' => $request->rang,
-                ]
-            );
-
-        return redirect()->route('users.index');
+        //
     }
 
     /**
