@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 class AdminPlaceController extends Controller
 {
+    public function
     /**
      * Display a listing of the resource.
      *

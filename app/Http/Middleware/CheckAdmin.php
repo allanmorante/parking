@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Illuminate\Support\Facades\Auth;
 
 class CheckAdmin
 {
@@ -15,6 +16,9 @@ class CheckAdmin
      */
     public function handle($request, Closure $next)
     {
+        if (Auth::) {
+            return redirect('home');
+        }
         return $next($request);
     }
 }
