@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateOrdonnerTable extends Migration
+class CreateReserversTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateOrdonnerTable extends Migration
      */
     public function up()
     {
-        Schema::create('ordonner', function (Blueprint $table) {
+        Schema::create('reservers', function (Blueprint $table) {
             $table->date('finPeriode');
             $table->integer('idMembre')->unsigned()->foreign()->references('id')->on('users');
             $table->integer('idPlace')->unsigned()->foreign()->references('idPlace')->on('place');
-            $table->date('debutPeriode')->foreign()->references('debutPeriode')->on('periode');
+            $table->date('debutPeriode');
             $table->primary(['idMembre', 'idPlace', 'debutPeriode']);
         });
     }
@@ -29,6 +29,6 @@ class CreateOrdonnerTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ordonner');
+        Schema::dropIfExists('reservers');
     }
 }

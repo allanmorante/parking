@@ -19,7 +19,7 @@
             @foreach($places as $place)
                 <tr>
                     <th scope="row">{{$place->numPlace}}</th>
-                    <td><button class="btn btn-danger" href="#">Supprimer</button> </td>
+                    <td><button class="btn btn-danger" href="/admin/places/{{$place->idPlace}}/destroy">Supprimer</button> </td>
                     <td>{{$place->idPlace}}</td>
                     <td><a class="btn btn-warning" href="/admin/places/{{$place->idPlace}}/edit">Editer</a> </td>
                     <td>Le status</td>

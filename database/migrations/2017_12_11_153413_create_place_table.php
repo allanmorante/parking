@@ -15,7 +15,8 @@ class CreatePlaceTable extends Migration
     {
         Schema::create('place', function (Blueprint $table) {
             $table->increments('idPlace');
-            $table->string('numPlace');
+            $table->integer('numPlace')->unique();
+            $table->boolean('reserver')->default(1);
             $table->timestamps();
         });
     }

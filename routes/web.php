@@ -35,5 +35,8 @@ Route::get('/pages/admin/manage/addplaces', 'AdminPlaceController@create')->name
 Route::resource('admin/places', 'AdminPlaceController');
 
 Route::resource('admin/users', 'AdminUsersController');
+Route::get('/admin/rang', 'AdminUsersController@indexRang')->name('indexRang');
+Route::get('/admin/userNotValid', 'AdminUsersController@indexNotValid')->name('indexNotValid');
+Route::get('/admin/{id}', 'AdminUsersController@valider')->name('validerUser');
 
 Route::resource('user', 'UserController');

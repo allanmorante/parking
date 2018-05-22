@@ -4,15 +4,18 @@ namespace App\Http\Controllers;
 
 use App\place;
 use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\Model;
+use App\User;
+use Auth;
 
 class AdminPlaceController extends Controller
 {
-    public function
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
+    /*public function __construct()
+    {
+        $this->middleware('checkadmin');
+    }*/
+
     public function index()
     {
         $places = place::all();
@@ -101,8 +104,9 @@ class AdminPlaceController extends Controller
      */
     public function destroy($id)
     {
-        $this->place->destroy($id);
-
-        return redirect()->route('places.index');
+        $place = place::all()->where('idPlace', $id)->first();
+        if($place)
+            $place->delete();
+            return view('admin.place', compact('places'));
     }
 }

@@ -2,6 +2,9 @@
 
 @section('content')
 
+    <a href="{{route('indexNotValid')}}" class="btn btn-primary">Utilisateur non valide</a>
+    <a href="{{route('indexRang')}}" class="btn btn-primary">File d'attente</a>
+
     @if (count($users) > 0)
         <table class="table">
             <thead>
@@ -13,7 +16,6 @@
                 <th scope="col">Supprimer</th>
                 <th scope="col">Editer</th>
                 <th scope="col">Place occupé</th>
-                <th scope="col">Rang</th>
             </tr>
             </thead>
             <tbody>
@@ -25,8 +27,6 @@
                     <td>{{$user->telephone}}</td>
                     <td><button class="btn btn-danger" href="/admin/users/{{$user->id}}">Supprimer</button> </td>
                     <td><a class="btn btn-warning" href="/admin/users/{{$user->id}}/edit">Editer</a> </td>
-                    <td>place de l'utilisateur</td>
-                    <td>{{$user->rang}}</td>
                 </tr>
             @endforeach
             </tbody>

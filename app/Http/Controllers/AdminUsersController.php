@@ -19,6 +19,40 @@ class AdminUsersController extends Controller
         return view('admin/users/index')->with('users', $users);
     }
 
+    public function indexNotValid()
+    {
+
+        $users = User::all()->where('isValid', '=', 0);
+        return view('admin/users/indexNotValid')->with('users', $users);
+    }
+
+    /**
+     * Afficher la file d'attente
+     */
+
+    public function indexRang()
+    {
+        $users = User::all()->where('rang', '!=', null);
+
+        return view('admin/users/indexRang')->with('users', $users);
+    }
+
+    /***
+     * valider un user non valide
+     */
+    public function valider(Request $request, $id)
+    {
+        $user = User::findOrFail($id);
+        $user->isValid = $request->update(1);
+
+        $user->save();
+
+
+        redirect(route('indexNotValid'));
+    }
+
+
+
     /**
      * Show the form for creating a new resource.
      *
